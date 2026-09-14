@@ -56,7 +56,7 @@
 | 2 | File DDL hoàn chỉnh | `sql/student/01_create_oltp.sql` | Mở file thấy `CREATE TABLE customers ... PRIMARY KEY`, `REFERENCES` |
 | 3 | Log chạy DDL thành công (`psql -f` hoặc DBeaver script log) | `docs/evidence/01-ddl-log.txt` hoặc `.png` | `CREATE TABLE` x7, không báo `ERROR` |
 
-### 1.3 Git Workflow - Repo, .gitignore, commit chuẩn (20%)
+### 1.3 Git Workflow - Repo, .gitignore, commit chuẩn
 
 **Yêu cầu chi tiết:**
 1. Khởi tạo repo Git nếu chưa có, đảm bảo cấu trúc thư mục của khóa học còn nguyên.
