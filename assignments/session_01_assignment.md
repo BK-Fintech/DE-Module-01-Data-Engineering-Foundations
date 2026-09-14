@@ -1,9 +1,4 @@
-# Bài tập về nhà - Buổi 1: Thiết kế Database & Khởi động Hệ thống
-
-**Hạn nộp:** Trước buổi 2
-
-**Độ khó:** ⭐️ (Cơ bản)
-
+# BÀI TẬP: THIẾT KẾ DATABASE & KHỞI ĐỘNG HỆ THỐNG
 ---
 
 ## Mục tiêu bài tập
@@ -13,9 +8,9 @@
 
 ---
 
-## Phần 1: Bắt buộc (100%)
+## Phần 1: Bắt buộc
 
-### 1.1 Environment Setup - Khởi động PostgreSQL + kết nối DBeaver (20%)
+### 1.1 Environment Setup - Khởi động PostgreSQL + kết nối DBeaver
 
 **Yêu cầu chi tiết:**
 1. Khởi động PostgreSQL bằng Docker Compose từ file `docker-compose.yml` của repo (`postgres:16`, port `5432`, user `de_user`).
@@ -27,7 +22,7 @@
   ```
 4. Commit `docker-compose.yml` (nếu có chỉnh sửa) với message rõ ràng.
 
-**Kết quả cần đạt (Done):**
+**Kết quả cần đạt:**
 - `docker compose ps` báo container `ecommerce-postgres` ở trạng thái `running (healthy)` hoặc `Up`.
 - DBeaver hiện trạng thái `Connected`, mở được cây database `ecommerce`.
 - 2 câu SQL trên chạy thành công, `current_database()` trả về `ecommerce`.
@@ -40,7 +35,7 @@
 | 2 | Ảnh DBeaver kết nối thành công (thấy database `ecommerce`) | `docs/evidence/01-dbeaver.png` | Icon kết nối xanh, không báo lỗi |
 | 3 | Output 2 câu SQL (copy text hoặc screenshot) | `docs/evidence/01-verify-db.txt` hoặc `.png` | `PostgreSQL 16.x ...`, `ecommerce` |
 
-### 1.2 Schema Design - Vẽ ERD và xuất SQL (30%)
+### 1.2 Schema Design - Vẽ ERD và xuất SQL
 
 **Yêu cầu chi tiết:**
 1. Đọc `docs/business_requirements.md` + `database/ecommerce_oltp.dbml` (tham khảo) rồi tự vẽ ERD tại dbdiagram.io gồm ít nhất 7 bảng: `customers, products, orders, order_items, payments, categories, order_status` (cho phép đặt tên tương đương nếu có lý do).
@@ -48,7 +43,7 @@
 3. Chọn data type phù hợp: tiền tệ dùng `DECIMAL/NUMERIC`, thời gian dùng `DATE/TIMESTAMP`, ID dùng `SERIAL/INT`, không dùng `VARCHAR` cho số tiền/ngày.
 4. Export DDL và lưu vào `sql/student/01_create_oltp.sql`, file chạy được trên PostgreSQL 16 (dùng `CREATE TABLE IF NOT EXISTS`).
 
-**Kết quả cần đạt (Done):**
+**Kết quả cần đạt:**
 - ERD thể hiện đủ 7 bảng + quan hệ 1:N (vẽ đường nối FK rõ ràng).
 - File `01_create_oltp.sql` chạy không lỗi trên DB trống, tạo đủ bảng.
 - Mỗi bảng có PK; các bảng con (`orders`, `order_items`, `payments`) có FK đúng; trường bắt buộc có `NOT NULL`.
@@ -68,7 +63,7 @@
 2. Tạo `.gitignore` phù hợp Python/PostgreSQL, tối thiểu gồm: `.env`, `logs/`, `*.pyc`, `__pycache__/`, `.venv/`, `data/raw/`, `data/reject/`.
 3. Commit lần đầu với message đúng quy định: `session-01: initial schema design`. Push lên GitHub.
 
-**Kết quả cần đạt (Done):**
+**Kết quả cần đạt:**
 - Repo GitHub public (hoặc đã share) chứa đủ `docker-compose.yml`, `sql/student/01_create_oltp.sql`, `.gitignore`.
 - `git log --oneline` thấy commit message đúng chuẩn.
 
@@ -79,16 +74,13 @@
 | 1 | Link repo GitHub + ảnh `git log --oneline` | Nộp link trong LMS + `docs/evidence/01-git-log.png` | Thấy dòng `session-01: initial schema design` |
 | 2 | File `.gitignore` | Root repo `/.gitignore` | Mở file thấy đủ các dòng yêu cầu |
 
-### 1.4 Reflection - Viết chiêm nghiệm 150-200 từ (30%)
+### 1.4 Reflection - Viết báo cáo
 
-**Yêu cầu chi tiết:** Viết 150-200 từ (tiếng Việt hoặc Anh) trả lời đủ 4 câu:
+**Yêu cầu chi tiết:** Viết báo cáo trả lời đủ 4 câu:
 1. Khó khăn khi cài Docker/DBeaver và cách bạn xử lý?
 2. Vì sao chọn data type như vậy cho tiền tệ / thời gian / ID? Cho 1 ví dụ cụ thể.
 3. Hiểu thế nào về quan hệ 1:N giữa `customers` và `orders`? Vẽ/kể ví dụ 1 customer có N orders.
 4. Nếu schema cần sửa sau này (thêm cột, đổi FK), bạn sẽ xử lý thế nào (ALTER vs tạo lại)?
-
-**Kết quả cần đạt (Done):**
-- Đủ 150-200 từ, trả lời cả 4 câu, có ít nhất 1 ví dụ cụ thể (lỗi gặp, data type, quan hệ).
 
 **Minh chứng phải nộp:**
 
@@ -114,13 +106,11 @@
 
 **Minh chứng phải nộp:** Đoạn SQL bổ sung đặt cuối `sql/student/01_create_oltp.sql` (comment `-- Session 01 Bonus`) + ảnh/log test insert vi phạm bị chặn (ví dụ insert amount âm báo `violates check constraint`).
 
-### 2.2 Documentation (Bonus 10%)
+### 2.2 Documentation
 
 **Yêu cầu chi tiết:**
 1. Viết `sql/README.md` hướng dẫn chạy scripts theo thứ tự (tạo DB → chạy `01_create_oltp.sql` → verify).
 2. Ghi chú quan hệ giữa các bảng (bảng cha-con, ý nghĩa FK) ngay trong file SQL bằng comment.
-
-**Kết quả cần đạt:** Người mới đọc `sql/README.md` chạy được DDL trong < 5 phút mà không cần hỏi thêm.
 
 **Minh chứng phải nộp:** File `sql/README.md` + comment quan hệ trong `01_create_oltp.sql`.
 
@@ -135,18 +125,6 @@
 | 1.3 Git | Repo + `.gitignore` + git log | Root repo + link GitHub nộp qua LMS |
 | 1.4 Reflection | Bài viết 150-200 từ | `docs/reflection_01.md` |
 | Bonus | CHECK/DEFAULT + `sql/README.md` | Trong `01_create_oltp.sql` + `sql/README.md` |
-
----
-
-## Rubric (giảng viên chấm theo minh chứng)
-
-| Tiêu chí | Điểm | Yêu cầu = minh chứng |
-|----------|------|---------|
-| Setup thành công | 20 | Có 3 ảnh/log 1.1; thiếu 1 minh chứng trừ 7 điểm |
-| Schema completeness | 30 | Đủ 7 bảng + PK/FK/NOT NULL + DDL chạy được; sai FK trừ 10, sai type trừ 5 |
-| Git workflow | 20 | Có repo + `.gitignore` đủ dòng + commit message đúng |
-| Reflection quality | 30 | Đủ 4 câu + 150-200 từ + có ví dụ cụ thể |
-| Bonus | +20% | Mỗi mục 2.1/2.2 đạt = +10% |
 
 ---
 
