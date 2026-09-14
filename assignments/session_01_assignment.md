@@ -90,9 +90,9 @@
 
 ---
 
-## Phần 2: Nâng cao (+20% Bonus)
+## Phần 2: Nâng cao
 
-### 2.1 Advanced Schema (Bonus 10%)
+### 2.1 Advanced Schema
 
 **Yêu cầu chi tiết:**
 1. Thêm `CHECK` constraints cho quy tắc business, ví dụ: `order_date` không ở tương lai, `total_amount >= 0`, `quantity > 0`.
@@ -116,7 +116,7 @@
 
 ---
 
-## Deliverables - Tổng hợp nộp bài (GitHub + LMS theo quy định)
+## Deliverables - Tổng hợp nộp bài
 
 | Task | File/Artifact phải có | Location trong repo |
 |------|----------------------|---------------------|
