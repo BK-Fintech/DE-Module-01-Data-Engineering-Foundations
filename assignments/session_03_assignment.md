@@ -100,7 +100,7 @@
 
 ### 2.2 Time Series Analysis (Bonus 10%)
 
-**Yêu cầu chi tiết:** Tính MoM growth (`(this-prev)/prev`), YoY (nếu có data), moving average 7-day/30-day của revenue.
+**Yêu cầu chi tiết:** Tính MoM growth (`(this-prev)/prev`), moving average 7-day/30-day của revenue.
 
 **Kết quả cần đạt:** 3 cột tính được, giải thích 2-3 dòng tháng tăng/giảm mạnh nhất.
 
